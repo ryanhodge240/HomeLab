@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ryanhodge240/HomeLab
     targetRevision: main
-    path: app/home-assistant
+    path: apps/home-assistant
   destination:
     server: https://kubernetes.default.svc
     namespace: home-assistant
