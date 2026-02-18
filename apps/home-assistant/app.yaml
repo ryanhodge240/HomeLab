@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ryanhodge240/HomeLab
     targetRevision: main
-    path: home-assistant
+    path: .
   destination:
     server: https://kubernetes.default.svc
     namespace: home-assistant
@@ -18,3 +18,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      #test
