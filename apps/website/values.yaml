@@ -1,0 +1,17 @@
+replicaCount: 1
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  hostname: website.local
+  ingressClassName: traefik
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi

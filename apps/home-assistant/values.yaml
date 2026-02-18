@@ -1,0 +1,11 @@
+replicaCount: 1
+
+hostNetwork: true
+
+ingress:
+  enabled: false
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
