@@ -32,8 +32,8 @@ spec:
             - --api.dashboard=true
             - --entrypoints.web.address=:80
             - --entrypoints.websecure.address=:443
-            - --providers.kubernetesgateway
-            - --providers.kubernetesgw.allowempty=false
+            - --providers.kubernetesgateway=true
+            - --providers.kubernetesgateway.allowempty=false
           resources:
             requests:
               cpu: 100m

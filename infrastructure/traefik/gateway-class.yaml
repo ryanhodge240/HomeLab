@@ -4,3 +4,7 @@ metadata:
   name: traefik
 spec:
   controllerName: traefik.io/gateway-controller
+  parameters:
+    apiGroup: traefik.io
+    kind: TraefikGatewayClassConfig
+    name: traefik-config
