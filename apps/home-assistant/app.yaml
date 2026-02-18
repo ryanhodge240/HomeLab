@@ -1,21 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: homeassistant
+  name: home-assistant
   namespace: argocd
+
 spec:
   project: homelab
   source:
     repoURL: https://home-assistant.github.io/charts
     chart: home-assistant
-    targetRevision: 0.x.x
     helm:
-      valueFiles:
-        - values.yaml
+      valuesObject:
+        service:
+          type: ClusterIP
+        persistence:
+          enabled: true
+          size: 10Gi
+
   destination:
     server: https://kubernetes.default.svc
-    namespace: homeassistant
+    namespace: home-assistant
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
