@@ -4,4 +4,5 @@ resources:
   - app.yaml
   - namespace.yaml
   - stateful-set.yaml
+  - service.yaml
   - http-route.yaml
