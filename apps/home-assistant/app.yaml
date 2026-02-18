@@ -3,20 +3,12 @@ kind: Application
 metadata:
   name: home-assistant
   namespace: argocd
-
 spec:
-  project: homelab
+  project: default
   source:
-    repoURL: https://home-assistant.github.io/charts
-    chart: home-assistant
-    helm:
-      valuesObject:
-        service:
-          type: ClusterIP
-        persistence:
-          enabled: true
-          size: 10Gi
-
+    repoURL: https://github.com/ryanhodge240/HomeLab
+    targetRevision: main
+    path: home-assistant
   destination:
     server: https://kubernetes.default.svc
     namespace: home-assistant
