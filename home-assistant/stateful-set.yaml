@@ -14,8 +14,6 @@ spec:
       labels:
         app: home-assistant
     spec:
-      # nodeSelector:
-      #   kubernetes.io/hostname: node2
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       securityContext:

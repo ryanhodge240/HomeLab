@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: home-assistant
+  name: tailscale-connector
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/ryanhodge240/HomeLab
     targetRevision: main
-    path: apps/home-assistant
+    path: tailscale
   destination:
     server: https://kubernetes.default.svc
-    namespace: home-assistant
+    namespace: tailscale
   syncPolicy:
     automated:
       prune: true
