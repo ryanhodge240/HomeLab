@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - home-assistant.yaml
-  # - metal-lb.yaml
+  - metal-lb.yaml
