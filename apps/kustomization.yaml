@@ -6,5 +6,4 @@ resources:
   - home-assistant.yaml
   - ingresses.yaml
   - metal-lb.yaml
-  - nginx.yaml
   - pi-hole.yaml
