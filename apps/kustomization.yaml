@@ -7,3 +7,4 @@ resources:
   - ingresses.yaml
   - metal-lb.yaml
   - pihole.yaml
+  - argocd.yaml

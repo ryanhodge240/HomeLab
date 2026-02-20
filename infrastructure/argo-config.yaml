@@ -1,7 +1,7 @@
 apiVersion: helm.cattle.io/v1
 kind: HelmChartConfig
 metadata:
-  name: argocd
+  name: argocd-server
   namespace: argocd
 spec:
   valuesContent: |-
