@@ -5,10 +5,10 @@ metadata:
   namespace: pi-hole
 data:
   02-custom.conf: |
-    address=/argo.local/10.0.0.243
-    address=/ha.local/10.0.0.243
-    address=/home-assistant.local/10.0.0.243
+    address=/argo.lan/10.0.0.243
+    address=/ha.lan/10.0.0.243
+    address=/home-assistant.lan/10.0.0.243
   custom.list: |
-    10.0.0.243 argo.local
-    10.0.0.243 ha.local
-    10.0.0.243 home-assistant.local
+    10.0.0.243 argo.lan
+    10.0.0.243 ha.lan
+    10.0.0.243 home-assistant.lan
