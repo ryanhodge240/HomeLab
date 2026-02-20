@@ -15,7 +15,6 @@ patches:
   - target:
       kind: CustomResourceDefinition
     patch: |-
-      - op: replace
+      - op: remove
         path: /metadata/annotations
-        value: {}
       
