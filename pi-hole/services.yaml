@@ -18,6 +18,8 @@ kind: Service
 metadata:
   name: pi-hole-dns-tcp
   namespace: pi-hole
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 10.0.0.202
 spec:
   type: LoadBalancer
   selector:
@@ -33,6 +35,8 @@ kind: Service
 metadata:
   name: pi-hole-dns-udp
   namespace: pi-hole
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 10.0.0.202
 spec:
   type: LoadBalancer
   selector:

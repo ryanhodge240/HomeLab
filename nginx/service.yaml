@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: nginx-ingress-controller
   namespace: nginx
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 10.0.0.200
 spec:
   type: LoadBalancer
   selector:
