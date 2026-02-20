@@ -26,10 +26,10 @@ spec:
     app: pi-hole
   ports:
     - name: dns-tcp
-      port: 53
+      port: 5353
       targetPort: 53
       protocol: TCP
     - name: dns-udp
-      port: 53
+      port: 5353
       targetPort: 53
       protocol: UDP
