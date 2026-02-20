@@ -11,5 +11,11 @@ patches:
     patch: |-
       - op: replace
         path: /spec/type
-        value: NodePort
+        value: ClusterIP
+  - target:
+      kind: CustomResourceDefinition
+    patch: |-
+      - op: replace
+        path: /metadata/annotations
+        value: {}
       
