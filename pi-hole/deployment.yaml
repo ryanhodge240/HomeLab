@@ -32,11 +32,6 @@ spec:
           env:
             - name: TZ
               value: "America/New_York"
-            - name: FTLCONF_webserver_api_password
-              valueFrom:
-                secretKeyRef:
-                  name: pihole-password
-                  key: password
             - name: FTLCONF_dns_listeningMode
               value: "all"
             - name: FTLCONF_dns_hosts
