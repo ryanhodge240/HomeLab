@@ -4,10 +4,10 @@ metadata:
   name: argocd-ingress
   namespace: argocd
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+    traefik.ingress.kubernetes.io/service.serverstransport: argocd-transport@kubernetescrd
 spec:
-  ingressClassName: home-assistant
+  ingressClassName: traefik
   rules:
     - host: ha.local
       http:
