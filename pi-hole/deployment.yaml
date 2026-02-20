@@ -35,7 +35,7 @@ spec:
             - name: FTLCONF_dns_listeningMode
               value: "all"
             - name: FTLCONF_dns_hosts
-              value: "10.0.0.243 argo.local;10.0.0.243 ha.local;"
+              value: "10.0.0.243 argo.lan;10.0.0.243 ha.lan;"
           ports:
             - containerPort: 53
               protocol: TCP
