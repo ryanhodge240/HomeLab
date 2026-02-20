@@ -8,16 +8,20 @@ spec:
   selector:
     matchLabels:
       app: pi-hole
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
         app: pi-hole
     spec:
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 1.1.1.1
+          - 8.8.8.8
       containers:
         - name: pi-hole
-          image: pihole/pihole:2026.02.0
+          image: docker.io/pihole/pihole:2025.03.0
+          imagePullPolicy: IfNotPresent
           resources:
             requests:
               memory: "256Mi"
@@ -28,32 +32,28 @@ spec:
           env:
             - name: TZ
               value: "America/New_York"
-            - name: WEBPASSWORD
-              value: "admin"
-            - name: DNSMASQ_LISTENING
+            - name: FTLCONF_webserver_api_password
+              valueFrom:
+                secretKeyRef:
+                  name: pihole-password
+                  key: password
+            - name: FTLCONF_dns_listeningMode
               value: "all"
+            - name: FTLCONF_dns_hosts
+              value: "10.0.0.243 argo.local;10.0.0.243 ha.local;"
           ports:
-            - name: dns-tcp
-              containerPort: 53
+            - containerPort: 53
               protocol: TCP
-            - name: dns-udp
-              containerPort: 53
+            - containerPort: 53
               protocol: UDP
-            - name: web
-              containerPort: 80
+            - containerPort: 80
               protocol: TCP
           volumeMounts:
-            - name: custom-dnsmasq
-              mountPath: /etc/dnsmasq.d/02-custom.conf
-              subPath: 02-custom.conf
             - name: pihole-data
               mountPath: /etc/pihole
             - name: dnsmasq-data
               mountPath: /etc/dnsmasq.d
       volumes:
-        - name: custom-dnsmasq
-          configMap:
-            name: pi-hole-custom-dnsmasq
         - name: pihole-data
           emptyDir: {}
         - name: dnsmasq-data
