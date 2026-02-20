@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pi-hole-dns-tcp
+  name: pi-hole-dns
   namespace: pi-hole
   annotations:
     metallb.universe.tf/loadBalancerIPs: 10.0.0.202
@@ -29,19 +29,6 @@ spec:
       port: 53
       targetPort: 53
       protocol: TCP
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: pi-hole-dns-udp
-  namespace: pi-hole
-  annotations:
-    metallb.universe.tf/loadBalancerIPs: 10.0.0.202
-spec:
-  type: LoadBalancer
-  selector:
-    app: pi-hole
-  ports:
     - name: dns-udp
       port: 53
       targetPort: 53
