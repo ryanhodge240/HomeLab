@@ -13,4 +13,10 @@ patches:
       - op: replace
         path: /spec/type
         value: NodePort
-      
+  - target:
+      kind: CustomResourceDefinition
+      name: applications.argoproj.io
+    patch: |-
+      - op: add
+        path: /metadata/annotations/argocd.argoproj.io~1sync-options
+        value: Replace=true
