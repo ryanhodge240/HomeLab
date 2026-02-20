@@ -5,4 +5,4 @@ metadata:
   namespace: kube-system
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.242
+  loadBalancerIP: 10.0.0.243
