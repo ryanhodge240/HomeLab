@@ -4,7 +4,7 @@ metadata:
   name: pi-hole-web
   namespace: pi-hole
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: pi-hole
   ports:

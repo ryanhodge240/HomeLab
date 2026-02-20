@@ -16,6 +16,13 @@ spec:
       containers:
         - name: pi-hole
           image: pihole/pihole:2026.02.0
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
           env:
             - name: TZ
               value: "America/New_York"

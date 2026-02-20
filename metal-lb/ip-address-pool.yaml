@@ -8,4 +8,4 @@ spec:
   # which is free and plentiful. We give this address pool a ton of IPs,
   # so that developers can spin up as many sandboxes as they need.
   addresses:
-  - 10.0.0.200 - 10.0.0.220
+  - 10.0.0.240 - 10.0.0.250
