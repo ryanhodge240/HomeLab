@@ -5,9 +5,11 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 patches:
-  - patch: |-
-      apiVersion: v1
+  - target:
       kind: Service
-      spec:
-        type: ClusterIP
+      name: argocd-server
+    patch: |-
+      - op: replace
+        path: /spec/type
+        value: ClusterIP
       
