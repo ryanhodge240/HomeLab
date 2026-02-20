@@ -3,18 +3,6 @@ kind: Service
 metadata:
   name: traefik
   namespace: kube-system
-  annotations:
-    metallb.io/loadBalancerIPs: 10.0.0.242
 spec:
   type: LoadBalancer
-  selector:
-    app.kubernetes.io/name: traefik
-  ports:
-    - name: http
-      port: 80
-      targetPort: 8000
-      protocol: TCP
-    - name: https
-      port: 443
-      targetPort: 8443
-      protocol: TCP
+  loadBalancerIP: 10.0.0.242
