@@ -8,6 +8,8 @@ metadata:
 spec:
   valuesContent: |-
     metadata:
+      annotations:
+        metallb.io/loadBalancerIPs: 10.0.0.243
     service:
       type: LoadBalancer
       loadBalancerIP: 10.0.0.243
