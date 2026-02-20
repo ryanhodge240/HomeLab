@@ -3,7 +3,8 @@ kind: Kustomization
 
 resources:
   - argocd.yaml
+  - coredns.yaml
   - home-assistant.yaml
   - ingresses.yaml
   - metal-lb.yaml
-  - nginx.yaml
+  - traefik.yaml
