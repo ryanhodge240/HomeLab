@@ -32,7 +32,9 @@ spec:
           env:
             - name: TZ
               value: "America/New_York"
-            - name: FTLCONF_dns_listeningMode
+            - name: WEBPASSWORD
+              value: "admin"
+            - name: DNSMASQ_LISTENING
               value: "all"
             - name: FTLCONF_dns_hosts
               value: "10.0.0.243 argo.lan;10.0.0.243 ha.lan;"
