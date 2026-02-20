@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pi-hole
+  namespace: pi-hole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pi-hole
+  template:
+    metadata:
+      labels:
+        app: pi-hole
+    spec:
+      containers:
+        - name: pi-hole
+          image: pihole/pihole:latest
+          env:
+            - name: TZ
+              value: "America/New_York"
+            - name: WEBPASSWORD
+              value: "admin"
+            - name: DNSMASQ_LISTENING
+              value: "all"
+          ports:
+            - name: dns-tcp
+              containerPort: 53
+              protocol: TCP
+            - name: dns-udp
+              containerPort: 53
+              protocol: UDP
+            - name: web
+              containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - name: custom-dnsmasq
+              mountPath: /etc/dnsmasq.d/02-custom.conf
+              subPath: 02-custom.conf
+            - name: pihole-data
+              mountPath: /etc/pihole
+            - name: dnsmasq-data
+              mountPath: /etc/dnsmasq.d
+      volumes:
+        - name: custom-dnsmasq
+          configMap:
+            name: pi-hole-custom-dnsmasq
+        - name: pihole-data
+          emptyDir: {}
+        - name: dnsmasq-data
+          emptyDir: {}

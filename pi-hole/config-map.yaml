@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pi-hole-custom-dnsmasq
+  namespace: pi-hole
+data:
+  02-custom.conf: |
+    address=/argo.local/10.0.0.201
+    address=/ha.local/10.0.0.200
+    address=/home-assistant.local/10.0.0.200

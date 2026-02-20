@@ -6,3 +6,4 @@ resources:
   - ingresses.yaml
   - metal-lb.yaml
   - nginx.yaml
+  - pi-hole.yaml
