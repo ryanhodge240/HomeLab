@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: pi-hole
-          image: pihole/pihole:latest
+          image: pihole/pihole:2026.02.0
           env:
             - name: TZ
               value: "America/New_York"
