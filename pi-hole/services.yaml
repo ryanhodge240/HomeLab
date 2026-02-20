@@ -3,10 +3,8 @@ kind: Service
 metadata:
   name: pi-hole-web
   namespace: pi-hole
-  annotations:
-    metallb.io/loadBalancerIPs: 10.0.0.241
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: pi-hole
   ports:
@@ -21,7 +19,7 @@ metadata:
   name: pi-hole-dns
   namespace: pi-hole
   annotations:
-    metallb.io/loadBalancerIPs: 10.0.0.242
+    metallb.io/loadBalancerIPs: 10.0.0.240
 spec:
   type: LoadBalancer
   selector:
