@@ -8,3 +8,7 @@ data:
     address=/argo.local/10.0.0.243
     address=/ha.local/10.0.0.243
     address=/home-assistant.local/10.0.0.243
+  custom.list: |
+    10.0.0.243 argo.local
+    10.0.0.243 ha.local
+    10.0.0.243 home-assistant.local
