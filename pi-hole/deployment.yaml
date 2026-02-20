@@ -32,8 +32,11 @@ spec:
           env:
             - name: TZ
               value: "America/New_York"
-            - name: WEBPASSWORD
-              value: "admin"
+            - name: FTLCONF_webserver_api_password
+              valueFrom:
+                secretKeyRef:
+                  name: pi-hole-secret
+                  key: password
             - name: DNSMASQ_LISTENING
               value: "all"
             - name: FTLCONF_dns_hosts
