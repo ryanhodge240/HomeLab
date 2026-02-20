@@ -1,7 +1,7 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: sandbox
+  name: homelab-pool
   namespace: metallb-system
 spec:
   # On the other hand, the sandbox environment uses private IP space,
