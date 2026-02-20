@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     traefik.ingress.kubernetes.io/service.serversscheme: https
+    traefik.ingress.kubernetes.io/service.serverstransport: argocd-transport@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
