@@ -3,8 +3,10 @@ kind: Service
 metadata:
   name: argocd-server-loadbalancer
   namespace: argocd
+  annotations:
+    metallb.io/loadBalancerIPs: 10.0.0.241
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app.kubernetes.io/name: argocd-server
   ports:
