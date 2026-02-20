@@ -13,6 +13,7 @@ spec:
       labels:
         app: pi-hole
     spec:
+      hostNetwork: true
       containers:
         - name: pi-hole
           image: pihole/pihole:2026.02.0
