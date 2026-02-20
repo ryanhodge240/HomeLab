@@ -9,4 +9,4 @@ spec:
   valuesContent: |-
     metadata:
     service:
-      type: ClusterIP
+      type: LoadBalancer
