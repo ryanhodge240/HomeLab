@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: pi-hole-web
   namespace: pi-hole
+  annotations:
+    metallb.io/loadBalancerIPs: 10.0.0.241
 spec:
   type: LoadBalancer
   selector:
@@ -19,7 +21,7 @@ metadata:
   name: pi-hole-dns
   namespace: pi-hole
   annotations:
-    metallb.io/loadBalancerIPs: 10.0.0.202
+    metallb.io/loadBalancerIPs: 10.0.0.242
 spec:
   type: LoadBalancer
   selector:
