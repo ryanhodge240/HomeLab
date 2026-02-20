@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pi-hole
-  namespace: pi-hole
+  name: pihole
+  namespace: pihole
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pi-hole
+      app: pihole
   template:
     metadata:
       labels:
-        app: pi-hole
+        app: pihole
     spec:
       dnsPolicy: "None"
       dnsConfig:
@@ -19,7 +19,7 @@ spec:
           - 1.1.1.1
           - 8.8.8.8
       containers:
-        - name: pi-hole
+        - name: pihole
           image: docker.io/pihole/pihole:2025.03.0
           imagePullPolicy: IfNotPresent
           resources:
@@ -35,7 +35,7 @@ spec:
             - name: FTLCONF_webserver_api_password
               valueFrom:
                 secretKeyRef:
-                  name: pi-hole-secret
+                  name: pihole-secret
                   key: password
             - name: DNSMASQ_LISTENING
               value: "all"
@@ -53,10 +53,7 @@ spec:
               mountPath: /etc/pihole
             - name: dnsmasq-data
               mountPath: /etc/dnsmasq.d
-            - name: custom-dnsmasq
-              mountPath: /etc/dnsmasq.d/02-custom.conf
-              subPath: 02-custom.conf
-            - name: custom-dnsmasq
+            - name: custom-dns
               mountPath: /etc/pihole/custom.list
               subPath: custom.list
       volumes:
@@ -64,6 +61,6 @@ spec:
           emptyDir: {}
         - name: dnsmasq-data
           emptyDir: {}
-        - name: custom-dnsmasq
+        - name: custom-dns
           configMap:
-            name: pi-hole-custom-dnsmasq
+            name: pihole-custom-dns
