@@ -1,28 +1,29 @@
-deployment:
-  enabled: true
-
-gateway:
-  enabled: true
-
-providers:
-  kubernetesGateway:
+traefik:
+  deployment:
     enabled: true
 
-ports:
-  web:
-    port: 8000
-    exposedPort: 80
-    protocol: TCP
-  websecure:
-    port: 8443
-    exposedPort: 443
-    protocol: TCP
+  gateway:
+    enabled: true
 
-service:
-  type: LoadBalancer
-  annotations:
-    metallb.io/loadBalancerIPs: 10.0.0.243
+  providers:
+    kubernetesGateway:
+      enabled: true
 
-logs:
-  general:
-    level: DEBUG #TODO: Change to INFO after debugging is complete
+  ports:
+    web:
+      port: 8000
+      exposedPort: 80
+      protocol: TCP
+    websecure:
+      port: 8443
+      exposedPort: 443
+      protocol: TCP
+
+  service:
+    type: LoadBalancer
+    annotations:
+      metallb.io/loadBalancerIPs: 10.0.0.243
+
+  logs:
+    general:
+      level: DEBUG #TODO: Change to INFO after debugging is complete
