@@ -13,11 +13,6 @@ patches:
       - op: replace
         path: /spec/type
         value: NodePort
-  - target:
-      kind: ConfigMap
-      name: argocd-cmd-params-cm
-    patch: |-
-      - op: add
-        path: /data
-        value:
-          server.insecure: "true"
+
+patchesStrategicMerge:
+  - argocd-cmd-params-cm.yaml
