@@ -4,3 +4,4 @@ resources:
   - stateful-set.yaml
   - service.yaml
   - http-route.yaml
+  - config-map.yaml

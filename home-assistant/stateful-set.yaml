@@ -24,12 +24,28 @@ spec:
           imagePullPolicy: IfNotPresent
           securityContext:
             privileged: true
+          env:
+            - name: TZ
+              value: "UTC"
+          ports:
+            - name: web
+              containerPort: 8123
+              protocol: TCP
           volumeMounts:
             - name: config
-              mountPath: /config-map.yaml
-      
+              mountPath: /config
+            - name: config-yaml
+              mountPath: /config/configuration.yaml
+              subPath: configuration.yaml
       volumes:
-        - name: config
-          persistentVolumeClaim:
-            claimName: home-assistant-config
-
+        - name: config-yaml
+          configMap:
+            name: home-assistant-config
+  volumeClaimTemplates:
+    - metadata:
+        name: config
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 5Gi

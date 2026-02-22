@@ -2,9 +2,21 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: home-assistant-config
+  namespace: home-assistant
 data:
   configuration.yaml: |
+    # Configure the HTTP component
     http:
       use_x_forwarded_for: true
       trusted_proxies:
         - 10.42.0.0/16
+        - 127.0.0.1
+        - ::1
+
+    # Logging (optional)
+    logger:
+      default: info
+
+    # Timezone
+    homeassistant:
+      time_zone: UTC
