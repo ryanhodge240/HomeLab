@@ -13,6 +13,4 @@ patches:
       - op: replace
         path: /spec/type
         value: NodePort
-
-patchesStrategicMerge:
-  - argocd-cmd-params-cm.yaml
+  - path: argocd-cmd-params-cm.yaml
