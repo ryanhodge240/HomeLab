@@ -23,6 +23,10 @@ traefik:
       port: 9000
       targetPort: 9000
       nodePort: 30002
+    traefik-dashboard:
+      port: 8080
+      targetPort: 8080
+      nodePort: 30003
 
   # Enables the dashboard in Secure Mode
   api:
