@@ -1,0 +1,11 @@
+apiVersion: v2
+name: gateway
+description: Traefik Gateway API infrastructure
+type: application
+version: 0.2.0
+appVersion: "3.6.4"
+
+dependencies:
+  - name: traefik
+    version: "38.0.0"
+    repository: https://traefik.github.io/charts

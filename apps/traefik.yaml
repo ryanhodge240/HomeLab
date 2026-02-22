@@ -6,9 +6,6 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://traefik.github.io/charts
-      chart: traefik
-      targetRevision: 27.0.2
     - repoURL: https://github.com/ryanhodge240/HomeLab
       targetRevision: main
       path: infrastructure/traefik
