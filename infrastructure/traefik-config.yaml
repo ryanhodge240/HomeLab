@@ -5,6 +5,8 @@ metadata:
   namespace: kube-system
 spec:
   valuesContent: |-
+    additionalArguments:
+      - "--providers.kubernetesgateway=true"
     service:
       type: LoadBalancer
       annotations:
