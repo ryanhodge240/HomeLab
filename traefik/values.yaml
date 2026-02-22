@@ -43,16 +43,17 @@ traefik:
         port: 443
         namespacePolicy:
           from: All
+        hostname: "*.lan"
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: argo-lan-tls
+            name: lan-wildcard-tls
             namespace: traefik
-          - kind: Secret
-            name: pihole-lan-tls
-            namespace: traefik
-          - kind: Secret
-            name: ha-lan-tls
+          # - kind: Secret
+          #   name: pihole-lan-tls
+          #   namespace: traefik
+          # - kind: Secret
+          #   name: ha-lan-tls
 
   service:
     type: LoadBalancer
