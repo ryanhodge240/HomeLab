@@ -22,7 +22,7 @@ traefik:
       port: 443
       exposedPort: 443
       nodePort: 30001
-    traefik-dashboard:
+    traefik:
       port: 9000
       exposedPort: 9000
 
