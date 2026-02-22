@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - infrastructure.yaml
   - home-assistant.yaml
-  - metal-lb.yaml
+  - metallb.yaml
   - pihole.yaml
   - argocd.yaml
   - traefik.yaml
