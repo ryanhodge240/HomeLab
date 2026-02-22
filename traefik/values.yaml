@@ -1,8 +1,7 @@
+# Documentation for Traefik Helm chart can be found at https://doc.traefik.io/traefik/getting-started/install-traefik/#helm-chart
+# I referenced https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml
 traefik:
   deployment:
-    enabled: true
-
-  gateway:
     enabled: true
 
   providers:
@@ -14,10 +13,24 @@ traefik:
       port: 8000
       exposedPort: 80
       protocol: TCP
-    websecure:
-      port: 8443
-      exposedPort: 443
-      protocol: TCP
+    # websecure:
+    #   port: 8443
+    #   exposedPort: 443
+    #   protocol: TCP
+
+  gateway:
+    enabled: true
+    name: traefik-gateway
+    namespace: traefik
+    listeners:
+      web:
+        protocol: HTTP
+        port: 8000
+        namespacePolicy: All
+      # websecure:
+      #   protocol: HTTPS
+      #   port: 443
+      #   allowedRoutesFrom: All
 
   service:
     type: LoadBalancer
@@ -27,15 +40,4 @@ traefik:
   logs:
     general:
       level: DEBUG #TODO: Change to INFO after debugging is complete
-
-gateway:
-  name: traefik-gateway
-  listeners:
-    web:
-      protocol: HTTP
-      port: 80
-      allowedRoutesFrom: All
-    websecure:
-      protocol: HTTPS
-      port: 443
-      allowedRoutesFrom: All
+  
