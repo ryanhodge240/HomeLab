@@ -4,12 +4,8 @@ traefik:
   deployment:
     enabled: true
 
-  additionalArguments:
-    - "--entrypoints.websecure.forwardedHeaders.insecure=true"
-
-  providers:
-    kubernetesGateway:
-      enabled: true
+  # additionalArguments:
+  #   - "--entrypoints.websecure.forwardedHeaders.insecure=true"
 
   ports:
     web:
@@ -35,7 +31,7 @@ traefik:
   ingressRoute:
     dashboard:
       enabled: true
-      matchRule: Host(`dashboard.lan`)
+      matchRule: Host(`dashboard.docker.localhost`)
       entryPoints:
         - websecure
       middlewares:
@@ -58,6 +54,18 @@ traefik:
       spec:
         basicAuth:
           secret: dashboard-auth-secret
+
+  # We will route with Gateway API instead.
+  ingressClass:
+    enabled: false
+
+  # Enable Gateway API Provider & Disables the KubernetesIngress provider
+  # Providers tell Traefik where to find routing configuration.
+  providers:
+    kubernetesIngress:
+      enabled: false
+    kubernetesGateway:
+      enabled: true
 
   gateway:
     enabled: true
