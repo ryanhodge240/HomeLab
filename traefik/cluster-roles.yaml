@@ -9,6 +9,9 @@ rules:
       - gatewayclasses
       - gateways
       - httproutes
+      - gatewayclasses/status
+      - gateways/status
+      - httproutes/status
       - grpcroutes
       - tlsroutes
       - tcproutes
@@ -19,6 +22,8 @@ rules:
       - get
       - list
       - watch
+      - update
+      - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
