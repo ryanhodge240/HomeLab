@@ -42,6 +42,9 @@ traefik:
           - kind: Secret
             name: argo-lan-tls
             namespace: traefik
+          - kind: Secret
+            name: pihole-lan-tls
+            namespace: traefik
 
   service:
     type: LoadBalancer
