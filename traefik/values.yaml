@@ -35,10 +35,10 @@ traefik:
           from: All
         tls:
           mode: Terminate
-          certificateRefs:
-            - kind: Secret
-              name: argo-lan-tls
-              namespace: traefik
+        certificateRefs:
+          - kind: Secret
+            name: argo-lan-tls
+            namespace: traefik
 
   service:
     type: LoadBalancer
