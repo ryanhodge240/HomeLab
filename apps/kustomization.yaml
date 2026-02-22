@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - infrastructure.yaml
   - home-assistant.yaml
-  - ingresses.yaml
   - metal-lb.yaml
   - pihole.yaml
   - argocd.yaml
