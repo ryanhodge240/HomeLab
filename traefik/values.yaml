@@ -13,10 +13,10 @@ traefik:
       port: 8000
       exposedPort: 80
       protocol: TCP
-    # websecure:
-    #   port: 8443
-    #   exposedPort: 443
-    #   protocol: TCP
+    websecure:
+      port: 8443
+      exposedPort: 443
+      protocol: TCP
 
   gateway:
     enabled: true
@@ -28,10 +28,13 @@ traefik:
         port: 8000
         namespacePolicy:
           from: All
-      # websecure:
-      #   protocol: HTTPS
-      #   port: 443
-      #   allowedRoutesFrom: All
+      websecure:
+        protocol: HTTPS
+        port: 8443
+        namespacePolicy:
+          from: All
+        tls:
+          mode: Terminate
 
   service:
     type: LoadBalancer
