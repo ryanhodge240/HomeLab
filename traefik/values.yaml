@@ -19,36 +19,6 @@ traefik:
       port: 443
       exposedPort: 443
       nodePort: 30001
-    traefik:
-      port: 9000
-      targetPort: 9000
-      nodePort: 30002
-    traefik-dashboard:
-      port: 8080
-      targetPort: 8080
-      nodePort: 30003
-
-  dashboard:
-    # Enable the dashboard on Traefik
-    enable: true
-
-    # Expose the dashboard and api through an ingress route at /dashboard
-    # and /api This is not secure and SHOULD NOT be enabled on production
-    # deployments
-    ingressRoute: false
-
-  # Enables the dashboard in Secure Mode
-  api:
-    dashboard: true
-    insecure: true
-
-  # We will route with Gateway API instead.
-  ingressClass:
-    enabled: false
-
-  ingressRoute:
-    dashboard:
-      enabled: true
 
   # Enable Gateway API Provider & Disables the KubernetesIngress provider
   # Providers tell Traefik where to find routing configuration.
