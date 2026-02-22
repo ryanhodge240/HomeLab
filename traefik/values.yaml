@@ -35,7 +35,7 @@ traefik:
   ingressRoute:
     dashboard:
       enabled: true
-      matchRule: Host(`dashboard.docker.localhost`)
+      matchRule: Host(`dashboard.lan`)
       entryPoints:
         - websecure
       middlewares:
