@@ -24,7 +24,7 @@ traefik:
       nodePort: 30001
     traefik:
       port: 9000
-      exposedPort: 9000
+      targetPort: 9000
       nodePort: 30002
 
   # Enables the dashboard in Secure Mode

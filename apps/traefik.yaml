@@ -12,9 +12,9 @@ spec:
       helm:
         valueFiles:
           - values.yaml
-    - repoURL: https://github.com/ryanhodge240/HomeLab
-      targetRevision: main
-      path: traefik
+    # - repoURL: https://github.com/ryanhodge240/HomeLab
+    #   targetRevision: main
+    #   path: traefik
   destination:
     server: https://kubernetes.default.svc
     namespace: traefik
