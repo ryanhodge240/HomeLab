@@ -24,3 +24,12 @@ spec:
           imagePullPolicy: IfNotPresent
           securityContext:
             privileged: true
+          volumeMounts:
+            - name: config
+              mountPath: /config-map.yaml
+      
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: home-assistant-config
+
