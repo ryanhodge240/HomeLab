@@ -4,7 +4,7 @@ metadata:
   name: ha-cert
   namespace: traefik
 spec:
-  secretName: ha-lan-secret
+  secretName: ha-lan-tls
   dnsNames:
     - ha.lan
   issuerRef:
