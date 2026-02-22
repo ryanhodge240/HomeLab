@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: traefik
-  namespace: kube-system
+  namespace: argocd
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: traefik
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
