@@ -40,6 +40,12 @@ traefik:
           mode: Terminate
         certificateRefs:
           - kind: Secret
+            name: argo-lan-tls
+            namespace: traefik
+          - kind: Secret
+            name: pihole-lan-tls
+            namespace: traefik
+          - kind: Secret
             name: ha-lan-tls
             namespace: home-assistant
 
