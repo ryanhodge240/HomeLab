@@ -13,9 +13,10 @@ patches:
       - op: replace
         path: /spec/type
         value: NodePort
-
-configMapGenerator:
-  - name: argocd-cmd-params-cm
-    behavior: merge
-    literals:
-      - server.insecure=true
+  - target:
+      kind: Deployment
+      name: argocd-server
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --insecure
