@@ -6,4 +6,3 @@ resources:
   - http-route.yaml
   - config-map.yaml
   - pvc.yaml
-  - certificate.yaml
