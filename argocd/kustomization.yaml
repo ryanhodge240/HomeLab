@@ -14,10 +14,9 @@ patches:
         path: /spec/type
         value: NodePort
   - target:
-      kind: Deployment
-      name: argocd-server
+      kind: ConfigMap
+      name: argocd-cmd-params-cm
     patch: |-
       - op: add
-        path: /spec/template/spec/containers/0/args
-        value:
-          - --insecure
+        path: /data/server.insecure
+        value: "true"
