@@ -17,6 +17,6 @@ patches:
       kind: ConfigMap
       name: argocd-cmd-params-cm
     patch: |-
-      - op: add
+      - op: replace
         path: /data/server.insecure
         value: "true"
