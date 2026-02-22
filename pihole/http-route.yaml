@@ -8,7 +8,7 @@ spec:
     - pihole.lan
   parentRefs:
     - name: traefik-gateway
-      namespace: infrastructure
+      namespace: traefik
       sectionName: websecure
   rules:
     - matches:
