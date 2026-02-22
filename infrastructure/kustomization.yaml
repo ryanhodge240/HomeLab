@@ -3,3 +3,5 @@ kind: Kustomization
 
 resources:
   - argo-config.yaml
+  - gateway/gateway-class.yaml
+  - gateway/gateway.yaml
