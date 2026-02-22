@@ -5,6 +5,9 @@ metadata:
   namespace: home-assistant
 data:
   configuration.yaml: |
+    default_config:
+    mobile_app:
+
     # Configure the HTTP component
     http:
       use_x_forwarded_for: true
