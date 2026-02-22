@@ -6,12 +6,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ryanhodge240/HomeLab
-    targetRevision: main
-    path: traefik
+    repoURL: https://traefik.github.io/charts
+    chart: traefik
+    targetRevision: 27.0.2
+    helm:
+      valueFiles:
+        - infrastructure/traefik/values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: traefik
   syncPolicy:
     automated:
       prune: true
