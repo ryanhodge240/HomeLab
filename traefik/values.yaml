@@ -103,4 +103,9 @@ traefik:
       level: INFO
     access:
       enabled: true
+
+  # Enables Prometheus for Metrics
+  metrics:
+    prometheus:
+      enabled: true
   
