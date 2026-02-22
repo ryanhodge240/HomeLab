@@ -9,7 +9,7 @@ traefik:
 
   ports:
     web:
-      port: 8000
+      port: 80
       exposedPort: 80
       nodePort: 30000
       http:
@@ -19,7 +19,7 @@ traefik:
             scheme: https
             permanent: true
     websecure:
-      port: 8443
+      port: 443
       exposedPort: 443
       nodePort: 30001
 
@@ -74,12 +74,12 @@ traefik:
     listeners:
       web:
         protocol: HTTP
-        port: 8000
+        port: 80
         namespacePolicy:
           from: All
       websecure:
         protocol: HTTPS
-        port: 8443
+        port: 443
         namespacePolicy:
           from: All
         mode: Terminate
