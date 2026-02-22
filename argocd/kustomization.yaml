@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-  - argo-route.yaml
+  - http-route.yaml
 
 patches:
   - target:
