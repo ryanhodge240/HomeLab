@@ -14,4 +14,3 @@ patches:
         path: /spec/type
         value: NodePort
   - path: argocd-cmd-params-cm.yaml
-  - path: argocd-cm.yaml

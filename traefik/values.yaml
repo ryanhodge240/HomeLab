@@ -4,15 +4,18 @@ traefik:
   deployment:
     enabled: true
 
+  additionalArguments:
+    - "--entrypoints.websecure.forwardedHeaders.insecure=true"
+
   providers:
     kubernetesGateway:
       enabled: true
 
   ports:
-    # web:
-    #   port: 8000
-    #   exposedPort: 80
-    #   protocol: TCP
+    web:
+      port: 8000
+      exposedPort: 80
+      protocol: TCP
     websecure:
       port: 8443
       exposedPort: 443
@@ -23,11 +26,11 @@ traefik:
     name: traefik-gateway
     namespace: traefik
     listeners:
-      # web:
-      #   protocol: HTTP
-      #   port: 8000
-      #   namespacePolicy:
-      #     from: All
+      web:
+        protocol: HTTP
+        port: 8000
+        namespacePolicy:
+          from: All
       websecure:
         protocol: HTTPS
         port: 8443
