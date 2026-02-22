@@ -53,14 +53,8 @@ spec:
               mountPath: /etc/pihole
             - name: dnsmasq-data
               mountPath: /etc/dnsmasq.d
-            # - name: custom-dns
-            #   mountPath: /etc/pihole/custom.list
-            #   subPath: custom.list
       volumes:
         - name: pihole-data
           emptyDir: {}
         - name: dnsmasq-data
           emptyDir: {}
-        # - name: custom-dns
-        #   configMap:
-        #     name: pihole-custom-dns
