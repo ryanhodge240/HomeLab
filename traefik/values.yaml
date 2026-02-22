@@ -4,9 +4,6 @@ traefik:
   deployment:
     enabled: true
 
-  # additionalArguments:
-  #   - "--entrypoints.websecure.forwardedHeaders.insecure=true"
-
   ports:
     web:
       port: 80
@@ -30,7 +27,7 @@ traefik:
   # Enables the dashboard in Secure Mode
   api:
     dashboard: true
-    insecure: false
+    insecure: true
 
   # We will route with Gateway API instead.
   ingressClass:
