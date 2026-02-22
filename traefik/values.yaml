@@ -35,6 +35,8 @@ traefik:
           from: All
         tls:
           mode: Terminate
+          certificateRefs:
+            - name: argo-lan-tls
 
   service:
     type: LoadBalancer
