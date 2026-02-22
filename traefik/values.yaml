@@ -41,7 +41,7 @@ traefik:
         certificateRefs:
           - kind: Secret
             name: ha-lan-tls
-            namespace: traefik
+            namespace: home-assistant
 
   service:
     type: LoadBalancer
