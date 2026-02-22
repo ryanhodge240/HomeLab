@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - stateful-set.yaml
   - service.yaml
+  - home-assistant-route.yaml
