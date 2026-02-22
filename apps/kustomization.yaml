@@ -7,3 +7,4 @@ resources:
   - pihole.yaml
   - argocd.yaml
   - traefik.yaml
+  - cert-manager.yaml
