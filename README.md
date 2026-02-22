@@ -1,9 +1,5 @@
 # HomeLab
 
-## TODO
-- Right now I am having trouble with connecting to argo.lan from my home computer. It seems like I am being redirected from https://argo.lan to that same route...
-  - Running `curl -k -I https://argo.lan` gives output showing that it is being redirected to itself. Same with `curl -k -v https://argo.lan`
-
 ## Helpful Commands
 
 ### Creating cert
