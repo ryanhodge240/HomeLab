@@ -4,3 +4,4 @@ resources:
   - deployment.yaml
   - services.yaml
   - http-route.yaml
+  - certificate.yaml
