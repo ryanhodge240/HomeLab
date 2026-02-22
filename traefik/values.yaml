@@ -26,7 +26,8 @@ traefik:
       web:
         protocol: HTTP
         port: 8000
-        namespacePolicy: All
+        namespacePolicy:
+          from: All
       # websecure:
       #   protocol: HTTPS
       #   port: 443
