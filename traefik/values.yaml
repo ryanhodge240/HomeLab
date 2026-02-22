@@ -27,3 +27,15 @@ traefik:
   logs:
     general:
       level: DEBUG #TODO: Change to INFO after debugging is complete
+
+gateway:
+  name: traefik-gateway
+  listeners:
+    web:
+      protocol: HTTP
+      port: 80
+      allowedRoutesFrom: All
+    websecure:
+      protocol: HTTPS
+      port: 443
+      allowedRoutesFrom: All
