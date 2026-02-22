@@ -46,8 +46,8 @@ traefik:
             name: pihole-lan-tls
             namespace: traefik
           - kind: Secret
-            name: ha-asdf-tls
-            namespace: traefik
+            name: ha-lan-tls
+            namespace: home-assistant
 
   service:
     type: LoadBalancer
