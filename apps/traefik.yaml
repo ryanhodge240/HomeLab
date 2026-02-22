@@ -5,13 +5,16 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://traefik.github.io/charts
-    chart: traefik
-    targetRevision: 27.0.2
-    helm:
-      valueFiles:
-        - infrastructure/traefik/values.yaml
+  sources:
+    - repoURL: https://traefik.github.io/charts
+      chart: traefik
+      targetRevision: 27.0.2
+    - repoURL: https://github.com/ryanhodge240/HomeLab
+      targetRevision: main
+      ref: values
+  Helm:
+    valueFiles:
+      - $values/infrastructure/traefik/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: traefik
