@@ -47,7 +47,7 @@ traefik:
             namespace: traefik
           - kind: Secret
             name: ha-lan-tls
-            namespace: home-assistant
+            namespace: traefik
 
   service:
     type: LoadBalancer

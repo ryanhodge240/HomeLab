@@ -54,3 +54,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 # Finally, apply the app of apps
 kubectl apply -f app-of-apps.yaml
 ```
+
+### Sync argo without UI
+```bash
+# Execute into the argocd-server pod
+argocd login localhost:8080 --username admin --password <Password> --insecure
+argocd app list
+argocd app sync argocd/homelab-root
+```
