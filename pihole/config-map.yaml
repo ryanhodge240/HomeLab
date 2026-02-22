@@ -7,4 +7,4 @@ data:
   custom.list: |
     10.0.0.243 argo.lan
     10.0.0.243 ha.lan
-    10.0.0.243 home-assistant.lan
+    10.0.0.243 pihole.lan

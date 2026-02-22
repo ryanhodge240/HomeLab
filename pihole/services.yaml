@@ -18,7 +18,18 @@ spec:
       port: 53
       targetPort: 53
       protocol: UDP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-web
+  namespace: pihole
+spec:
+  type: ClusterIP
+  selector:
+    app: pihole
+  ports:
     - name: web
-      port: 8543
+      port: 80
       targetPort: 80
       protocol: TCP

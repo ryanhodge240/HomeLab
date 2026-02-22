@@ -1,0 +1,20 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: pihole-web
+  namespace: pihole
+spec:
+  hostnames:
+    - pihole.lan
+  parentRefs:
+    - name: traefik-gateway
+      namespace: infrastructure
+      sectionName: web
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: pihole-web
+          port: 80

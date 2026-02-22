@@ -37,10 +37,10 @@ spec:
                 secretKeyRef:
                   name: pihole-secret
                   key: password
-            - name: DNSMASQ_LISTENING
+            - name: FTLCONF_dns_listeningMode
               value: "all"
             - name: FTLCONF_dns_hosts
-              value: "10.0.0.243 argo.lan;10.0.0.243 ha.lan;"
+              value: "10.0.0.243 argo.lan;10.0.0.243 ha.lan;10.0.0.243 pihole.lan"
           ports:
             - containerPort: 53
               protocol: TCP
@@ -53,14 +53,14 @@ spec:
               mountPath: /etc/pihole
             - name: dnsmasq-data
               mountPath: /etc/dnsmasq.d
-            - name: custom-dns
-              mountPath: /etc/pihole/custom.list
-              subPath: custom.list
+            # - name: custom-dns
+            #   mountPath: /etc/pihole/custom.list
+            #   subPath: custom.list
       volumes:
         - name: pihole-data
           emptyDir: {}
         - name: dnsmasq-data
           emptyDir: {}
-        - name: custom-dns
-          configMap:
-            name: pihole-custom-dns
+        # - name: custom-dns
+        #   configMap:
+        #     name: pihole-custom-dns
