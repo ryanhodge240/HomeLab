@@ -15,11 +15,47 @@ traefik:
     web:
       port: 8000
       exposedPort: 80
-      protocol: TCP
+      http:
+        redirections:
+          entryPoint:
+            to: websecure
+            scheme: https
+            permanent: true
     websecure:
       port: 8443
       exposedPort: 443
-      protocol: TCP
+
+  # Enables the dashboard in Secure Mode
+  api:
+    dashboard: true
+    insecure: false
+
+  ingressRoute:
+    dashboard:
+      enabled: true
+      matchRule: Host(`dashboard.docker.localhost`)
+      entryPoints:
+        - websecure
+      middlewares:
+        - name: dashboard-auth
+
+  # Creates a BasicAuth Middleware and Secret for the Dashboard Security
+  extraObjects:
+    - apiVersion: v1
+      kind: Secret
+      metadata:
+        name: dashboard-auth-secret
+      type: kubernetes.io/basic-auth
+      stringData:
+        username: admin
+        password: "P@ssw0rd"      # Replace with an Actual Password
+    - apiVersion: traefik.io/v1alpha1
+      kind: Middleware
+      metadata:
+        name: dashboard-auth
+      spec:
+        basicAuth:
+          secret: dashboard-auth-secret
 
   gateway:
     enabled: true
@@ -36,8 +72,7 @@ traefik:
         port: 8443
         namespacePolicy:
           from: All
-        tls:
-          mode: Terminate
+        mode: Terminate
         certificateRefs:
           - kind: Secret
             name: argo-lan-tls
@@ -47,7 +82,6 @@ traefik:
             namespace: traefik
           - kind: Secret
             name: ha-lan-tls
-            namespace: traefik
 
   service:
     type: LoadBalancer
@@ -56,5 +90,7 @@ traefik:
 
   logs:
     general:
-      level: DEBUG #TODO: Change to INFO after debugging is complete
+      level: INFO
+    access:
+      enabled: true
   
