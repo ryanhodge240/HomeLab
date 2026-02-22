@@ -5,5 +5,5 @@ resources:
   - gateway-class.yaml
   - gateway.yaml
   - cluster-roles.yaml
-  - routes/argo.yaml
-  - routes/home-assistant.yaml
+  - argo-route.yaml
+  - home-assistant-route.yaml
