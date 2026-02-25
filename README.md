@@ -1,5 +1,12 @@
 # HomeLab
 
+## TODO
+- Make the following scripts
+  - Script to sync argo apps
+  - Script to setup keys
+  - Set target revision to a specific branch
+  - Test new commit
+
 ## Helpful Commands
 
 ### Creating cert
