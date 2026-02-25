@@ -8,3 +8,4 @@ resources:
   - argocd.yaml
   - traefik.yaml
   - cert-manager.yaml
+  - sealed-secrets.yaml

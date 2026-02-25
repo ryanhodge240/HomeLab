@@ -1,0 +1,4 @@
+sealed-secrets:
+  fullnameOverride: sealed-secrets-controller
+  rbac:
+    create: true

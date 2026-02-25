@@ -5,16 +5,10 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  sources:
-    - repoURL: https://charts.jetstack.io
-      chart: cert-manager
-      targetRevision: v1.14.5
-      helm:
-        values: |
-          installCRDs: true
-    - repoURL: https://github.com/ryanhodge240/HomeLab
-      targetRevision: main
-      path: cert-manager
+  source:
+    repoURL: https://github.com/ryanhodge240/HomeLab
+    targetRevision: sealed-secrets-setup
+    path: cert-manager
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager

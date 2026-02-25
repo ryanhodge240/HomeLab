@@ -5,16 +5,10 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  sources:
-    - repoURL: https://github.com/ryanhodge240/HomeLab
-      targetRevision: main
-      path: traefik
-      helm:
-        valueFiles:
-          - values.yaml
-    - repoURL: https://github.com/ryanhodge240/HomeLab
-      targetRevision: main
-      path: traefik
+  source:
+    repoURL: https://github.com/ryanhodge240/HomeLab
+    targetRevision: sealed-secrets-setup
+    path: traefik
   destination:
     server: https://kubernetes.default.svc
     namespace: traefik
