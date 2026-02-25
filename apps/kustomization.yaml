@@ -9,3 +9,4 @@ resources:
   - traefik.yaml
   - cert-manager.yaml
   - sealed-secrets.yaml
+  - tailscale.yaml
