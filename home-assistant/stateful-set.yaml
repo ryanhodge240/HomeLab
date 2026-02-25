@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: home-assistant
+  namespace: home-assistant
+spec:
+  serviceName: home-assistant
+  replicas: 1
+  selector:
+    matchLabels:
+      app: home-assistant
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      securityContext:
+        runAsUser: 0
+      containers:
+        - name: home-assistant
+          image: docker.io/homeassistant/home-assistant:2026.2.2
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+          env:
+            - name: TZ
+              value: "UTC"
+          ports:
+            - name: web
+              containerPort: 8123
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: config-yaml
+              mountPath: /config/configuration.yaml
+              subPath: configuration.yaml
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: home-assistant-config
+        - name: config-yaml
+          configMap:
+            name: home-assistant-config

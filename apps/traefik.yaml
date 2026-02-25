@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/ryanhodge240/HomeLab
+      targetRevision: main
+      path: traefik
+      helm:
+        valueFiles:
+          - values.yaml
+    - repoURL: https://github.com/ryanhodge240/HomeLab
+      targetRevision: main
+      path: traefik
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

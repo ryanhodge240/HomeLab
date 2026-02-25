@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: lan-wildcard-cert
+  namespace: traefik
+spec:
+  secretName: lan-wildcard-tls
+  dnsNames:
+    - argo.lan
+    - pihole.lan
+    - ha.lan
+    - "*.lan"
+    - lan
+  issuerRef:
+    name: internal-ca-issuer
+    kind: ClusterIssuer

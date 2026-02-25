@@ -1,18 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: homelab-root
+  name: tailscale-connector
   namespace: argocd
 spec:
-  project: homelab
+  project: default
   source:
     repoURL: https://github.com/ryanhodge240/HomeLab
     targetRevision: main
-    path: .
+    path: tailscale
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: tailscale
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
