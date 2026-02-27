@@ -5,10 +5,16 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://github.com/ryanhodge240/HomeLab
-    targetRevision: main
-    path: traefik
+  sources:
+    - repoURL: https://github.com/ryanhodge240/HomeLab
+      targetRevision: fix-traefik
+      path: traefik/helm
+      helm:
+        valueFiles:
+          - values.yaml
+    - repoURL: https://github.com/ryanhodge240/HomeLab
+      targetRevision: fix-traefik
+      path: traefik/kustomize
   destination:
     server: https://kubernetes.default.svc
     namespace: traefik
