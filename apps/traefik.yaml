@@ -7,13 +7,13 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/ryanhodge240/HomeLab
-      targetRevision: fix-traefik
+      targetRevision: main
       path: traefik/helm
       helm:
         valueFiles:
           - values.yaml
     - repoURL: https://github.com/ryanhodge240/HomeLab
-      targetRevision: fix-traefik
+      targetRevision: main
       path: traefik/kustomize
   destination:
     server: https://kubernetes.default.svc
