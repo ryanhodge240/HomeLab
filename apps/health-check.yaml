@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ryanhodge240/HealthCheck
     targetRevision: main
-    path: kustom
+    path: kustomize
   destination:
     server: https://kubernetes.default.svc
     namespace: health-check

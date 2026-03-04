@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ryanhodge240/HomeLab
-    targetRevision: main
+    targetRevision: add-portfolio-website
     path: argocd
   destination:
     server: https://kubernetes.default.svc
