@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: pihole
+  name: portfolio
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/ryanhodge240/HomeLab
-    targetRevision: add-portfolio-website
-    path: pihole
+    repoURL: https://github.com/ryanhodge240/Portfolio
+    targetRevision: main
+    path: kustomize
   destination:
     server: https://kubernetes.default.svc
-    namespace: pihole
+    namespace: portfolio
   syncPolicy:
     automated:
       prune: true
