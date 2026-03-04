@@ -10,3 +10,4 @@ resources:
   - cert-manager.yaml
   - sealed-secrets.yaml
   - tailscale.yaml
+  - health-check.yaml
