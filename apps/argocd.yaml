@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: argocd
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: portfolio=ghcr.io/ryanhodge240/portfolio
+    argocd-image-updater.argoproj.io/portfolio.update-strategy: digest
 spec:
   project: default
   source:
