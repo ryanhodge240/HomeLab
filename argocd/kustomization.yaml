@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  - https://github.com/argoproj-labs/argocd-image-updater/manifests/install.yaml
   - http-route.yaml
   - secrets/portfolio-registry-sealed-secret.yaml
 
