@@ -5,6 +5,7 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - http-route.yaml
   - secrets/portfolio-registry-sealed-secret.yaml
+  - secrets/image-updater-registry-sealed-secret.yaml
 
 patches:
   - target:
