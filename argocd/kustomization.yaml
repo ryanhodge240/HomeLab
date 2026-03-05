@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - http-route.yaml
-  - secrets/github-registry-sealed-secret.yaml
+  - secrets/portfolio-registry-sealed-secret.yaml
 
 patches:
   - target:
