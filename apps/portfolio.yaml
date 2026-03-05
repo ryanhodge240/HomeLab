@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ryanhodge240/Portfolio
+    repoURL: git@github.com:ryanhodge240/Portfolio.git
     targetRevision: main
     path: kustomize
   destination:
