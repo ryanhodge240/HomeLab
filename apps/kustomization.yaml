@@ -12,3 +12,4 @@ resources:
   - tailscale.yaml
   - health-check.yaml
   - portfolio.yaml
+  - other-applications/image-updater.yaml
