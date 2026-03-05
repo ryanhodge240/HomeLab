@@ -6,6 +6,7 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: portfolio=ghcr.io/ryanhodge240/portfolio
     argocd-image-updater.argoproj.io/portfolio.update-strategy: digest
+    argocd-image-updater.argoproj.io/portfolio.allow-tags: regexp:^latest$
 spec:
   project: default
   source:
