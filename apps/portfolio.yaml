@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: portfolio=ghcr.io/ryanhodge240/portfolio
-    argocd-image-updater.argoproj.io/portfolio.update-strategy: digest
-    argocd-image-updater.argoproj.io/portfolio.allow-tags: regexp:^latest$
+    argocd-image-updater.argoproj.io/portfolio.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/portfolio.allow-tags: regexp:^[a-f0-9]{7,40}$
 spec:
   project: default
   source:
