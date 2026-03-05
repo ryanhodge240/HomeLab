@@ -65,3 +65,10 @@ argocd login localhost:8080 --username admin --password <Password> --insecure
 argocd app list
 argocd app sync argocd/homelab-root
 ```
+
+### Sealed secrets workflow
+```bash
+kubectl create secret generic pihole-secret -n pihole --from-literal=password=<EnterPassword> --dry-run=client -o yaml > secret.yaml
+kubeseal -f secret.yaml -w sealed-secret.yaml --controller-namespace sealed-secrets --controller-name sealed-secrets
+# Then add the sealed-secret.yaml file to git
+```
