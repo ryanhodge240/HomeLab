@@ -6,13 +6,13 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://github.com/ryanhodge240/HomeLab
+    - repoURL: git@github.com:ryanhodge240/HomeLab.git
       targetRevision: main
       path: traefik/helm
       helm:
         valueFiles:
           - values.yaml
-    - repoURL: https://github.com/ryanhodge240/HomeLab
+    - repoURL: git@github.com:ryanhodge240/HomeLab.git
       targetRevision: main
       path: traefik/kustomize
   destination:

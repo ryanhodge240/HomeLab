@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ryanhodge240/HomeLab
+    repoURL: git@github.com:ryanhodge240/HomeLab.git
     targetRevision: main
     path: tailscale
   destination:
