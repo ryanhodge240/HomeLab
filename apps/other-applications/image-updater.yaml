@@ -17,7 +17,7 @@ spec:
             - name: ghcr
               prefix: ghcr.io
               api_url: https://ghcr.io
-              credentials: secret:argocd/image-updater-registry-secret
+              credentials: secret:argocd/image-updater-registry-secret#username:password
               default: true
 
   destination:
