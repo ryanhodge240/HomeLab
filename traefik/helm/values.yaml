@@ -38,16 +38,27 @@ traefik:
         port: 80
         namespacePolicy:
           from: All
-      websecure:
+      websecure-lan:
         protocol: HTTPS
         port: 443
+        hostname: "*.lan"
         namespacePolicy:
           from: All
-        hostname: "*.lan"
         mode: Terminate
         certificateRefs:
           - kind: Secret
             name: lan-wildcard-tls
+            namespace: traefik
+
+      websecure-public:
+        protocol: HTTPS
+        port: 443
+        namespacePolicy:
+          from: All
+        mode: Terminate
+        certificateRefs:
+          - kind: Secret
+            name: personal-website-tls
             namespace: traefik
 
   service:

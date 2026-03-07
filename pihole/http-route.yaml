@@ -9,7 +9,7 @@ spec:
   parentRefs:
     - name: traefik-gateway
       namespace: traefik
-      sectionName: websecure
+      sectionName: websecure-lan
   rules:
     - matches:
         - path:

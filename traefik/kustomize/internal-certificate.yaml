@@ -8,6 +8,7 @@ spec:
   dnsNames:
     - argo.lan
     - portfolio.lan
+    - ryanhodge.lan
     - pihole.lan
     - ha.lan
     - "*.lan"
