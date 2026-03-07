@@ -49,11 +49,6 @@ traefik:
           - kind: Secret
             name: lan-wildcard-tls
             namespace: traefik
-          # - kind: Secret
-          #   name: pihole-lan-tls
-          #   namespace: traefik
-          # - kind: Secret
-          #   name: ha-lan-tls
 
   service:
     type: LoadBalancer

@@ -23,6 +23,26 @@ kubectl create secret tls argo-lan-tls \
   -n traefik
 ```
 
+### Trusting the internal CA on macOS (fixes "Not Secure" in browser)
+`portfolio.lan` uses a certificate issued by your internal cert-manager CA (`internal-ca-issuer`).
+HTTPS is encrypted already, but browsers will still show **Not Secure** until this CA is trusted on your device.
+
+```bash
+# Export the internal CA certificate from cert-manager
+kubectl get secret internal-ca-secret -n cert-manager -o jsonpath='{.data.tls\.crt}' | base64 --decode > internal-ca.crt
+
+# Trust it in macOS System keychain
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain internal-ca.crt
+```
+
+Then fully restart your browser and revisit `https://portfolio.lan`.
+
+If you need to remove trust later:
+
+```bash
+sudo security delete-certificate -c home-internal-ca /Library/Keychains/System.keychain
+```
+
 ### Creating secret example
 ```bash
 kubectl create secret generic pihole-secret -n pihole --from-literal=password=<EnterPassword>
