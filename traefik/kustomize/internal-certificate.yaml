@@ -9,6 +9,7 @@ spec:
     - argo.lan
     - portfolio.lan
     - ryanhodge.lan
+    - ai.ryanhodge.lan
     - pihole.lan
     - ha.lan
     - "*.lan"
