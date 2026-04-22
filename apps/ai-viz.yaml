@@ -4,9 +4,16 @@ metadata:
   name: ai-viz
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: portfolio=ghcr.io/ryanhodge240/AI-Viz
-    argocd-image-updater.argoproj.io/portfolio.update-strategy: newest-build
-    argocd-image-updater.argoproj.io/portfolio.allow-tags: regexp:^[a-f0-9]{7,40}$
+    argocd-image-updater.argoproj.io/image-list:
+      - ui=ghcr.io/ryanhodge240/ai-viz-ui
+      - random-forest=ghcr.io/ryanhodge240/ai-viz-random-forest
+      - bagging=ghcr.io/ryanhodge240/ai-viz-bagging
+    argocd-image-updater.argoproj.io/ui.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/ui.allow-tags: regexp:^[a-f0-9]{7,40}$
+    argocd-image-updater.argoproj.io/randomforest.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/randomforest.allow-tags: regexp:^[a-f0-9]{7,40}$
+    argocd-image-updater.argoproj.io/bagging.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/bagging.allow-tags: regexp:^[a-f0-9]{7,40}$
 spec:
   project: default
   source:

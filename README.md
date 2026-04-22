@@ -91,4 +91,14 @@ argocd app sync argocd/homelab-root
 kubectl create secret generic pihole-secret -n pihole --from-literal=password=<EnterPassword> --dry-run=client -o yaml > secret.yaml
 kubeseal -f secret.yaml -w sealed-secret.yaml --controller-namespace sealed-secrets --controller-name sealed-secrets
 # Then add the sealed-secret.yaml file to git
+
+# For registry secrets, you can do:
+kubectl create secret docker-registry image-updater-registry-secret \
+  --docker-server=ghcr.io \
+  --docker-username=ryanhodge240 \
+  --docker-password=<GitHub_Personal_Access_Token> \
+  --namespace <Namespace> \
+  --dry-run=client -o yaml > registry-secret.yaml
+kubeseal -f registry-secret.yaml -w sealed-registry-secret.yaml --controller-namespace sealed-secrets --controller-name sealed-secrets
+# Then add the sealed-registry-secret.yaml file to the argo repo
 ```
