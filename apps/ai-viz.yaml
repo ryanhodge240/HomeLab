@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ai-viz
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: portfolio=ghcr.io/ryanhodge240/AI-Viz
+    argocd-image-updater.argoproj.io/portfolio.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/portfolio.allow-tags: regexp:^[a-f0-9]{7,40}$
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:ryanhodge240/AI-Viz.git
+    targetRevision: main
+    path: kustomize
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ai-viz
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
