@@ -13,4 +13,5 @@ resources:
   - health-check.yaml
   - portfolio.yaml
   - ai-viz.yaml
+  - lrw.yaml
   - other-applications/image-updater.yaml
