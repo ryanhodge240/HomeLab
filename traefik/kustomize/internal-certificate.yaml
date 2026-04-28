@@ -11,6 +11,7 @@ spec:
     - ryanhodge.lan
     - ai.ryanhodge.lan
     - pihole.lan
+    - lrw.lan
     - ha.lan
     - "*.lan"
     - lan
