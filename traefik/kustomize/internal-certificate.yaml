@@ -13,6 +13,7 @@ spec:
     - pihole.lan
     - lrw.lan
     - ha.lan
+    - geo-app.lan
     - "*.lan"
     - lan
   issuerRef:
