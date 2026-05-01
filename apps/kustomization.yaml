@@ -15,4 +15,5 @@ resources:
   - ai-viz.yaml
   - lrw.yaml
   - geo-app.yaml
+  - nicks-app.yaml
   - other-applications/image-updater.yaml
