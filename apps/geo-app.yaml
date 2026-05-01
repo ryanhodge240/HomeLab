@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: geo-app
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: client=ghcr.io/ryanhodge240/geo-app-client,server=ghcr.io/ryanhodge240/geo-app-server
+    argocd-image-updater.argoproj.io/client.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/client.allow-tags: regexp:^[a-f0-9]{7,40}$
+    argocd-image-updater.argoproj.io/server.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/server.allow-tags: regexp:^[a-f0-9]{7,40}$
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:ryanhodge240/GeoApp.git
+    targetRevision: main
+    path: kustomize
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: geo-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
