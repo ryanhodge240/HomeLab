@@ -13,6 +13,7 @@ spec:
         app: tailscale-subnet-router
     spec:
       hostNetwork: true
+      serviceAccountName: tailscale-subnet-router
       containers:
         - name: tailscale
           image: ghcr.io/tailscale/tailscale:latest
@@ -37,18 +38,10 @@ spec:
               value: --advertise-tags=tag:k8s
             - name: TS_USERSPACE
               value: "false"
-            - name: TS_STATE_DIR
-              value: /var/lib/tailscale
             - name: TS_KUBE_SECRET
-              value: ""
+              value: "tailscale-state"
           securityContext:
             capabilities:
               add:
                 - NET_ADMIN
                 - NET_RAW
-          volumeMounts:
-            - name: tailscale-state
-              mountPath: /var/lib/tailscale
-      volumes:
-        - name: tailscale-state
-          emptyDir: {}
