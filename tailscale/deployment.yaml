@@ -12,6 +12,7 @@ spec:
       labels:
         app: tailscale-subnet-router
     spec:
+      hostNetwork: true
       containers:
         - name: tailscale
           image: ghcr.io/tailscale/tailscale:latest
