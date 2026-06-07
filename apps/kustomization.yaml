@@ -16,4 +16,5 @@ resources:
   - lrw.yaml
   - geo-app.yaml
   - nicks-app.yaml
+  - realworld.yaml
   - other-applications/image-updater.yaml

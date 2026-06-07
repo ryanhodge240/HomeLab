@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: realworld
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: realworld=ghcr.io/ryanhodge240/realworld
+    argocd-image-updater.argoproj.io/realworld.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/realworld.allow-tags: regexp:^[a-f0-9]{7,40}$
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:ryanhodge240/RealWorld.git
+    targetRevision: main
+    path: kustomize
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: realworld
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
